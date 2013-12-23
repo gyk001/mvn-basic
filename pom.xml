@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.guoyukun.mvn</groupId>
+	<artifactId>mvn-basic</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	<packaging>pom</packaging>
+	<name>mvn-basic</name>
+	<description>A Basic Maven Project Config for GYK001</description>
+	<url>https://github.com/gyk001/mvn-basic</url>
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>http://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>gyk001</id>
+			<name>郭玉昆</name>
+			<email>gyk001@gmail.com</email>
+			<url>http://www.guoyukun.cn</url>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://github.com/gyk001/mvn-basic.git</connection>
+		<developerConnection>scm:git:git@github.com:gyk001/mvn-basic.git</developerConnection>
+		<url>https://github.com/gyk001/mvn-basic</url>
+	  <tag>mvn-basic-0.0.1</tag>
+  </scm>
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/gyk001/mvn-basic/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>travis-ci</system>
+		<url>https://travis-ci.org/gyk001/mvn-basic</url>
+	</ciManagement>
+	<properties>
+		<project.build.targetLevel>1.6</project.build.targetLevel>
+		<project.build.sourceLevel>1.6</project.build.sourceLevel>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<!-- 编译插件 -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<!-- 编译级别 -->
+						<source>${project.build.sourceLevel}</source>
+						<target>${project.build.targetLevel}</target>
+						<!-- 源文件编码 -->
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
