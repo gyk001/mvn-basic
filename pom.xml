@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.guoyukun.mvn</groupId>
 	<artifactId>mvn-basic</artifactId>
@@ -41,14 +42,7 @@
 		<system>travis-ci</system>
 		<url>https://travis-ci.org/gyk001/mvn-basic</url>
 	</ciManagement>
-	<properties>
-		<project.build.targetLevel>1.6</project.build.targetLevel>
-		<project.build.sourceLevel>1.6</project.build.sourceLevel>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 	<build>
-		<plugins>
-		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -73,8 +67,59 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>1.4</version>
-				</plugin>				
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+	<profiles>
+		<profile>
+			<id>jdk5</id>
+			<activation>
+				<jdk>1.5</jdk>
+			</activation>
+			<properties>
+				<project.build.targetLevel>1.5</project.build.targetLevel>
+				<project.build.sourceLevel>1.5</project.build.sourceLevel>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk6</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.build.targetLevel>1.6</project.build.targetLevel>
+				<project.build.sourceLevel>1.6</project.build.sourceLevel>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk7</id>
+			<properties>
+				<project.build.targetLevel>1.7</project.build.targetLevel>
+				<project.build.sourceLevel>1.7</project.build.sourceLevel>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk8</id>
+			<properties>
+				<project.build.targetLevel>1.8</project.build.targetLevel>
+				<project.build.sourceLevel>1.8</project.build.sourceLevel>
+			</properties>
+		</profile>
+		<profile>
+			<id>UTF-8</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			</properties>
+		</profile>
+		<profile>
+			<id>GBK</id>
+			<properties>
+				<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+			</properties>
+		</profile>
+	</profiles>
 </project>
